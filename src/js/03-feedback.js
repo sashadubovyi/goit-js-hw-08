@@ -14,8 +14,8 @@ populateFeedbackForm();
 
 function onInputData(e) {
   formData = {
-    email: input.value.trim(),
-    message: textarea.value.trim(),
+    email: input.value,
+    message: textarea.value,
   };
   localStorage.setItem(LOCAL_KEY, JSON.stringify(formData));
 }
@@ -24,11 +24,8 @@ function onFormSubmit(e) {
   e.preventDefault();
 
   const { email, message } = e.currentTarget.elements;
-  console.log({ email: email.value.trim(), message: message.value.trim() });
+  console.log({ email: email.value, message: message.value });
 
-  if (localStorage.getItem(LOCAL_KEY)) {
-    localStorage.removeItem(LOCAL_KEY);
-  }
   e.currentTarget.reset();
   formData = {};
 }
